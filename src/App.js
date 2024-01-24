@@ -1,6 +1,7 @@
 // App.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 
 const fetchData = async (url) => {
   try {
@@ -22,9 +23,8 @@ const App = () => {
   useEffect(() => {
     const fetchApiData = async () => {
       const timelineUrl = "https://arthurfrost.qflo.co.za/php/getTimeline.php";
-      const imageBaseUrl = "https://arthurfrost.qflo.co.za/Images/";
+      const imageBaseUrl = "https://arthurfrost.qflo.co.za/";
       const mp3BaseUrl = "https://arthurfrost.qflo.co.za/MP3/";
-
       try {
         const apiData = await fetchData(timelineUrl);
         setApiData(apiData);
@@ -49,9 +49,8 @@ const App = () => {
             <p>CreateDate: {item.CreateDate}</p>
             <p>Media Name : {item.MediaName}</p>
             
-
-            {item.image && (
-              <img src={`${imageBaseUrl}${item.image}`} alt="Timeline Image" />
+            {item.Image && (
+              <img src={`${imageBaseUrl}${item.Image}`} alt="Timeline Image" />
             )}
 
             {item.audio && (
