@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
@@ -27,7 +26,6 @@ const fetchBodyData = async (url) => {
     throw error;
   }
 };
-
 const App = () => {
   const imageUrl = "https://arthurfrost.qflo.co.za/Images/communion.jpg";
 
@@ -72,17 +70,40 @@ const App = () => {
                   <p>{item.Id}</p>
                 </div>
               </div>
-              <div className="category">
+              <div className="icon">
                 {" "}
-                <p>{item.Category}</p>
+                {item.Icon && (
+                  <img
+                    src={`${imageBaseUrl}${item.Icon}`}
+                    alt="Timeline Image"
+                  />
+                )}
               </div>
-              <p>Media: {item.Media}</p>
-              <p>Episode: {item.Episode}</p>
-              <p>Media Name : {item.MediaName}</p>
-              <p>Status {item.Status}</p>
-              <p>IsActive {item.isActive}</p>
-              <p>Epoch: {item.Epoch}</p>
-              <p>CreateDate: {item.CreateDate}</p>
+              <div className="info-container">
+    
+                <p className="second-title">{item.Category}</p>
+
+                <p className="info-label">Media</p>
+                <p className="info-value">{item.Media}</p>
+
+                <p className="info-label">Episode:</p>
+                <p className="info-value">{item.Episode}</p>
+
+                <p className="info-label">Media Name</p>
+                <p className="info-value">{item.MediaName}</p>
+
+                <p className="info-label">Status</p>
+                <p className="info-value">{item.Status}</p>
+
+                <p className="info-label">IsActive</p>
+                <p className="info-value">{item.isActive}</p>
+
+                <p className="info-label">Epoch</p>
+                <p className="info-value">{item.Epoch}</p>
+
+                <p className="info-label">Date created</p>
+                <p className="info-value">{item.CreateDate}</p>
+              </div>
               <div className="image">
                 {item.Image && (
                   <img
