@@ -8,8 +8,7 @@ Step 1 : Installation
 git clone https://github.com/Joseph1818/Assignment-1.git
 
 #Change into the project directory:
-
-cd your-react-app
+cd Assignment-1
 
 #Install the project dependencies:
 
@@ -23,17 +22,18 @@ This opens the application in your usual web browser. You can access it via http
 
 Step 3: Project Structure
 The project structure follows a standard React application setup. Key directories include:
-
-src: Contains the source code of the React application.
-
+src:
+Contains the source code of the React application.
 public: Contains static files that do not need to go through the build process.
 
 step 4: Available Scripts
-
 In the project directory, you can run the following scripts:
 
-npm start: Runs the app in development mode.
+npm start:
+Runs the app in development mode.
 
-npm test: Launches the test runner.
+npm test:
+Launches the test runner.
 
-npm run build: Builds the app for production.
+npm run build:
+Builds the app for production.
