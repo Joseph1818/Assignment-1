@@ -24,7 +24,7 @@ const App = () => {
     const fetchApiData = async () => {
       const timelineUrl = "https://arthurfrost.qflo.co.za/php/getTimeline.php";
       const imageBaseUrl = "https://arthurfrost.qflo.co.za/";
-      const mp3BaseUrl = "https://arthurfrost.qflo.co.za/MP3/";
+      const mp3BaseUrl = "https://arthurfrost.qflo.co.za/";
       try {
         const apiData = await fetchData(timelineUrl);
         setApiData(apiData);
@@ -43,19 +43,41 @@ const App = () => {
       <ul className="timeline-list">
         {apiData.map((item) => (
           <li key={item.id} className="timeline-item">
-            <p>Id: {item.Id}</p>
-            <p>Title: {item.Title}</p>
+            <div className="id">
+              <div className="title1">
+                <p className="ttile">{item.Title}</p>
+              </div>
+              <div className="id2">
+                <p>{item.Id}</p>
+              </div>
+            </div>
+            <div className="category">
+              {" "}
+              <p>{item.Category}</p>
+            </div>
+            <p>Media: {item.Media}</p>
             <p>Episode: {item.Episode}</p>
             <p>CreateDate: {item.CreateDate}</p>
             <p>Media Name : {item.MediaName}</p>
-            
-            {item.Image && (
-              <img src={`${imageBaseUrl}${item.Image}`} alt="Timeline Image" />
-            )}
-
-            {item.audio && (
-              <audio controls src={`${mp3BaseUrl}${item.audio}`} />
-            )}
+            <p>Status {item.Status}</p>
+            <p>IsActive {item.isActive}</p>
+            <p>Epoch: {item.Epoch}</p>
+            <div className="image">
+              {item.Image && (
+                <img
+                  src={`${imageBaseUrl}${item.Image}`}
+                  alt="Timeline Image"
+                />
+              )}
+            </div>
+            <div className="audio__MainDiv">
+              {item.Audio && (
+                <audio controls src={`${mp3BaseUrl}${item.Audio}`} />
+              )}
+              <div className="audio__size">
+                <p>Size:{item.AudioSize}</p>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
